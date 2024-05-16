@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "94166561012",
+    "project_id": "school-admission-575a5",
+    "storage_bucket": "school-admission-575a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94166561012:android:37fe9cf1b0fa1f86e62ea1",
+        "android_client_info": {
+          "package_name": "com.Hama.schooladmission"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4Pg9F4M_8TxWAoikWzALWn-KXTkxKaSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
