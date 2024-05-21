@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyItemScope
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,6 +30,27 @@ import com.Hama.schooladmission.models.Student
 import com.Hama.schooladmission.navigation.ROUTE_ADD_STUDENTS
 
 
+val Any.name: String
+    get() {
+        return name
+    }
+val Any.admission: String
+    get() {
+        return admission
+    }
+val Any.marks:String
+    get(){
+        return marks
+    }
+val Any.stream:String
+    get() {
+        return stream
+    }
+val Any.id:String
+    get(){
+        return id
+    }
+
 @Composable
 fun ViewStudentsScreen(navController:NavHostController) {
     Column(modifier = Modifier.fillMaxSize(),
@@ -49,7 +69,7 @@ fun ViewStudentsScreen(navController:NavHostController) {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "All products",
+            Text(text = "All students",
                 fontSize = 30.sp,
                 fontFamily = FontFamily.Cursive,
                 color = Color.Red)
@@ -66,15 +86,14 @@ fun ViewStudentsScreen(navController:NavHostController) {
 
 }
 
-private fun <LazyListScope> LazyListScope.items(count: Unit, itemContent: @Composable LazyItemScope.(index: Int) -> Unit) {
-
+fun items(students: Any, itemContent: @Composable() (LazyItemScope.(index: Int) -> Unit)) {
+    TODO("Not yet implemented")
 }
 
-//fun items(count: Unit, itemContent: @Composable() (LazyItemScope.(index: Int) -> Unit)) {
-//
-//
+//fun <LazyListScope> LazyListScope.items(count: Unit, itemContent: @Composable LazyItemScope.(index: Int) -> Unit) {
 //
 //}
+
 
 fun Student(name: String, admission: String, marks: String, stream: String) {
 
@@ -91,7 +110,7 @@ fun StudentItem(name:String, admission: String,marks: String, stream:String, id:
         Text(text = stream)
         Text(text = id)
         Button(onClick = {
-            studentRepository.studentRepository
+            studentRepository.deleteStudent(id)
         }) {
             Text(text = "Delete")
         }

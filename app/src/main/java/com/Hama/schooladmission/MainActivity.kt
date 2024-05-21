@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AppNavHost(modifier = Modifier)
+                   com.Hama.schooladmission.navigation.AppNavHost(modifier = Modifier)
                 }
             }
         }

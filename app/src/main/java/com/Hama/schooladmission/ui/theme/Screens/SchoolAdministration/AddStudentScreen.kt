@@ -27,7 +27,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.Hama.schooladmission.data.StudentViewModel
 import com.Hama.schooladmission.navigation.ROUTE_VIEW_STUDENTS
-import org.w3c.dom.Text
+
+
 
 @Composable
 fun AddStudentScreen(navController: NavHostController){
@@ -35,51 +36,55 @@ fun AddStudentScreen(navController: NavHostController){
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
+
         var context = LocalContext.current
         Text(text = "Add Student",
             fontSize = 26.sp,
             modifier = Modifier.padding(20.dp),
             textDecoration = TextDecoration.Underline)
-        var studentName by remember { mutableStateOf(TextFieldValue("")) }
-        var studentAdm by remember { mutableStateOf(TextFieldValue("")) }
-        var studentClass by remember { mutableStateOf(TextFieldValue("")) }
-        var studentStream by remember { mutableStateOf(TextFieldValue("")) }
-        var studentMarks by remember { mutableStateOf(TextFieldValue("")) }
-        OutlinedTextField(value = studentName, onValueChange = {studentName = it},
+
+        var studentname by remember { mutableStateOf(TextFieldValue("")) }
+        var studentadmission by remember { mutableStateOf(TextFieldValue("")) }
+//        var studentClass by remember { mutableStateOf(TextFieldValue("")) }
+        var studentstream by remember { mutableStateOf(TextFieldValue("")) }
+        var studentmarks by remember { mutableStateOf(TextFieldValue("")) }
+        OutlinedTextField(value = studentname, onValueChange = {studentname = it},
             label = { Text(text = "student Name *")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text))
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        OutlinedTextField(value = studentAdm, onValueChange = {studentAdm = it},
+        OutlinedTextField(value = studentadmission, onValueChange = {studentadmission = it},
             label = { Text(text = "student Adm *")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text))
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        OutlinedTextField(value = studentMarks, onValueChange = {studentMarks = it},
+        OutlinedTextField(value = studentmarks, onValueChange = {studentmarks = it},
             label = { Text(text = "student Marks *")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text))
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        OutlinedTextField(value = studentClass, onValueChange = {studentClass = it},
-            label = { Text(text = "student Class *")},
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text))
+//        OutlinedTextField(value = studentClass, onValueChange = {studentClass = it},
+//            label = { Text(text = "student Class *")},
+//            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text))
+//
+//        Spacer(modifier = Modifier.height(20.dp))
 
-        Spacer(modifier = Modifier.height(20.dp))
-
-        OutlinedTextField(value = studentStream, onValueChange = {studentStream = it},
+        OutlinedTextField(value = studentstream, onValueChange = {studentstream = it},
             label = { Text(text = "student Stream *")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text))
 
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(onClick = {
-//          studentRepository = StudentViewModel(navController,context)
+            val studentRepository = StudentViewModel(navController, context)
+            studentRepository.UploadStudent
             navController.navigate(ROUTE_VIEW_STUDENTS)
         }) {
             Text(text = "Upload")
+
         }
         Button(onClick = {
             //-----------WRITE THE UPLOAD LOGIC HERE---------------//

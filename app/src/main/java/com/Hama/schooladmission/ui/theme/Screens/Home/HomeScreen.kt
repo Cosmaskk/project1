@@ -1,8 +1,9 @@
 package com.Hama.schooladmission.ui.theme.Screens.Home
 
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.Image//import com.Hama.schooladmission.navigation.ROUTE_SCHOOLADMINISTRATION
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,18 +27,22 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.Hama.schooladmission.R
 import com.Hama.schooladmission.navigation.ROUTE_ADD_STUDENTS
-//import com.Hama.schooladmission.navigation.ROUTE_SCHOOLADMINISTRATION
 import com.Hama.schooladmission.navigation.ROUTE_STUDENTLOGIN
 
 @Composable
 fun HomeScreen(navController: NavController){
-    Image(painter = painterResource(id = R.drawable.app), contentDescription = "icon", modifier = Modifier.size(300.dp).clip(shape = CircleShape), contentScale = ContentScale.Crop)
+
     Column (
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Green),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
+        Box {
+            Image(painter = painterResource(id = R.drawable.app), contentDescription = "icon", modifier = Modifier
+                .size(300.dp)
+                .clip(shape = CircleShape), contentScale = ContentScale.Crop)
+        }
         Text(text = "Welcome",
             color = Color.Red,
             fontSize = 25.sp)
